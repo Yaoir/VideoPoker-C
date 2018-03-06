@@ -1,0 +1,17 @@
+Debian package; add to main repository
+
+Version 2
+---------
+
+Card marking in hand recognition functions,
+	so winning hands can be shown clearly by showhand()
+	Have each function return an array of marks: int marked[5];
+
+Support for other games, including jokers/deuces wild
+
+web page:
+	description of game with screen captures, to show appearance
+	downloads of .deb files for 64-bit PC and Raspberry Pi
+		if in Debian repository, explain how to use Synaptic (GUI)
+		or apt-get (text), and how to start it from the Debian menu
+	download for source tarball

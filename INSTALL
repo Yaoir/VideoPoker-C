@@ -1,0 +1,25 @@
+1. There is no 'configure' step.
+
+2. To compile the program, run the command
+
+make
+
+   This requires that you have a version of
+   gcc installed that supports the C99 standard.
+
+3. To install, copy the executable file
+   'videopoker' to a directory in your $PATH,
+   such as /usr/bin, /usr/local/bin, or /usr/games.
+
+4. To run videopoker, simply run the command
+
+videopoker
+
+   in a virtual terminal. You will need to be
+   using a font that supports Unicode card characters,
+   such as the 'monospace' or 'DejaVu' fonts on
+   Linux. If you do not have a font that supports
+   Unicode card characters, run videopoker with
+   the -u0 option, like this:
+
+videopoker -u0

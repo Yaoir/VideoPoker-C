@@ -1,0 +1,16 @@
+A text-based video poker for Linux.
+
+Many variants of video poker found in casinos are included as options.
+
+The cards can be displayed as black or color characters, and also as Unicode
+card faces.
+
+It's a great way to practice your strategy for fun, or before going to a casino.
+The text-based playing action allows for quick play and more rapid training than
+with a GUI application.
+
+If anyone would like to help develop a Qt-based GUI version, please let me know!
+
+I'd also like to get this into the Debian and other package repositories if
+possible. I've already done some of the work on that. If you are a package
+maintainer for any Linux distribution, please contact me.
