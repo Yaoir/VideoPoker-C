@@ -66,72 +66,80 @@ typedef struct
 #define NUMSUITS 4
 const char *suitname[NUMSUITS] = { "C", "D", "H", "S" };
 
-/* needed for recognizing royal flush or tens or better (TEN), or jacks or better (JACK) */
-
-#define TEN 9	/* the index of the "10" card */
-#define JACK 10	/* the index of the "jack" card */
+#define TWO 1
+#define THREE 2
+#define FOUR 3
+#define FIVE 4
+#define SIX 5
+#define SEVEN 6
+#define EIGHT 7
+#define NINE 8
+#define TEN 9	/* needed for recognizing royal flush, or tens or better (TEN), or jacks or better (JACK) */
+#define JACK 10 /* needed for recognizing royal flush, or tens or better (TEN), or jacks or better (JACK) */
+#define QUEEN 11
+#define KING 12
+#define ACE 13	/* needed for recognizing Ace-low straight (Ace, 2, 3, 4, 5) */
 
 /* The standard deck of 52 cards */
 
 card deck[CARDSINDECK] =
 {
 /*	index, card, Unicode, suit, gone */
-	{  1, " 2", L"\U0001F0D2", CLUBS, 0 },
-	{  2, " 3", L"\U0001F0D3", CLUBS, 0 },
-	{  3, " 4", L"\U0001F0D4", CLUBS, 0 },
-	{  4, " 5", L"\U0001F0D5", CLUBS, 0 },
-	{  5, " 6", L"\U0001F0D6", CLUBS, 0 },
-	{  6, " 7", L"\U0001F0D7", CLUBS, 0 },
-	{  7, " 8", L"\U0001F0D8", CLUBS, 0 },
-	{  8, " 9", L"\U0001F0D9", CLUBS, 0 },
-	{  9, "10", L"\U0001F0Da", CLUBS, 0 },
-	{ 10, " J", L"\U0001F0Db", CLUBS, 0 },
-	{ 11, " Q", L"\U0001F0Dd", CLUBS, 0 },
-	{ 12, " K", L"\U0001F0De", CLUBS, 0 },
-	{ 13, " A", L"\U0001F0D1", CLUBS, 0 },
+	{ TWO,   " 2", L"\U0001F0D2", CLUBS, 0 },
+	{ THREE, " 3", L"\U0001F0D3", CLUBS, 0 },
+	{ FOUR,  " 4", L"\U0001F0D4", CLUBS, 0 },
+	{ FIVE,  " 5", L"\U0001F0D5", CLUBS, 0 },
+	{ SIX,   " 6", L"\U0001F0D6", CLUBS, 0 },
+	{ SEVEN, " 7", L"\U0001F0D7", CLUBS, 0 },
+	{ EIGHT, " 8", L"\U0001F0D8", CLUBS, 0 },
+	{ NINE,  " 9", L"\U0001F0D9", CLUBS, 0 },
+	{ TEN,   "10", L"\U0001F0Da", CLUBS, 0 },
+	{ JACK,  " J", L"\U0001F0Db", CLUBS, 0 },
+	{ QUEEN, " Q", L"\U0001F0Dd", CLUBS, 0 },
+	{ KING,  " K", L"\U0001F0De", CLUBS, 0 },
+	{ ACE,   " A", L"\U0001F0D1", CLUBS, 0 },
 
-	{  1, " 2", L"\U0001F0C2", DIAMONDS, 0 },
-	{  2, " 3", L"\U0001F0C3", DIAMONDS, 0 },
-	{  3, " 4", L"\U0001F0C4", DIAMONDS, 0 },
-	{  4, " 5", L"\U0001F0C5", DIAMONDS, 0 },
-	{  5, " 6", L"\U0001F0C6", DIAMONDS, 0 },
-	{  6, " 7", L"\U0001F0C7", DIAMONDS, 0 },
-	{  7, " 8", L"\U0001F0C8", DIAMONDS, 0 },
-	{  8, " 9", L"\U0001F0C9", DIAMONDS, 0 },
-	{  9, "10", L"\U0001F0Ca", DIAMONDS, 0 },
-	{ 10, " J", L"\U0001F0Cb", DIAMONDS, 0 },
-	{ 11, " Q", L"\U0001F0Cd", DIAMONDS, 0 },
-	{ 12, " K", L"\U0001F0Ce", DIAMONDS, 0 },
-	{ 13, " A", L"\U0001F0C1", DIAMONDS, 0 },
+	{ TWO,   " 2", L"\U0001F0C2", DIAMONDS, 0 },
+	{ THREE, " 3", L"\U0001F0C3", DIAMONDS, 0 },
+	{ FOUR,  " 4", L"\U0001F0C4", DIAMONDS, 0 },
+	{ FIVE,  " 5", L"\U0001F0C5", DIAMONDS, 0 },
+	{ SIX,   " 6", L"\U0001F0C6", DIAMONDS, 0 },
+	{ SEVEN, " 7", L"\U0001F0C7", DIAMONDS, 0 },
+	{ EIGHT, " 8", L"\U0001F0C8", DIAMONDS, 0 },
+	{ NINE,  " 9", L"\U0001F0C9", DIAMONDS, 0 },
+	{ TEN,   "10", L"\U0001F0Ca", DIAMONDS, 0 },
+	{ JACK,  " J", L"\U0001F0Cb", DIAMONDS, 0 },
+	{ QUEEN, " Q", L"\U0001F0Cd", DIAMONDS, 0 },
+	{ KING,  " K", L"\U0001F0Ce", DIAMONDS, 0 },
+	{  ACE,  " A", L"\U0001F0C1", DIAMONDS, 0 },
 
-	{  1, " 2", L"\U0001F0B2", HEARTS, 0 },
-	{  2, " 3", L"\U0001F0B3", HEARTS, 0 },
-	{  3, " 4", L"\U0001F0B4", HEARTS, 0 },
-	{  4, " 5", L"\U0001F0B5", HEARTS, 0 },
-	{  5, " 6", L"\U0001F0B6", HEARTS, 0 },
-	{  6, " 7", L"\U0001F0B7", HEARTS, 0 },
-	{  7, " 8", L"\U0001F0B8", HEARTS, 0 },
-	{  8, " 9", L"\U0001F0B9", HEARTS, 0 },
-	{  9, "10", L"\U0001F0Ba", HEARTS, 0 },
-	{ 10, " J", L"\U0001F0Bb", HEARTS, 0 },
-	{ 11, " Q", L"\U0001F0Bd", HEARTS, 0 },
-	{ 12, " K", L"\U0001F0Be", HEARTS, 0 },
-	{ 13, " A", L"\U0001F0B1", HEARTS, 0 },
+	{ TWO,   " 2", L"\U0001F0B2", HEARTS, 0 },
+	{ THREE, " 3", L"\U0001F0B3", HEARTS, 0 },
+	{ FOUR,  " 4", L"\U0001F0B4", HEARTS, 0 },
+	{ FIVE,  " 5", L"\U0001F0B5", HEARTS, 0 },
+	{ SIX,   " 6", L"\U0001F0B6", HEARTS, 0 },
+	{ SEVEN, " 7", L"\U0001F0B7", HEARTS, 0 },
+	{ EIGHT, " 8", L"\U0001F0B8", HEARTS, 0 },
+	{ NINE,  " 9", L"\U0001F0B9", HEARTS, 0 },
+	{ TEN,   "10", L"\U0001F0Ba", HEARTS, 0 },
+	{ JACK,  " J", L"\U0001F0Bb", HEARTS, 0 },
+	{ QUEEN, " Q", L"\U0001F0Bd", HEARTS, 0 },
+	{ KING,  " K", L"\U0001F0Be", HEARTS, 0 },
+	{ ACE,   " A", L"\U0001F0B1", HEARTS, 0 },
 
-	{  1, " 2", L"\U0001F0A2", SPADES, 0 },
-	{  2, " 3", L"\U0001F0A3", SPADES, 0 },
-	{  3, " 4", L"\U0001F0A4", SPADES, 0 },
-	{  4, " 5", L"\U0001F0A5", SPADES, 0 },
-	{  5, " 6", L"\U0001F0A6", SPADES, 0 },
-	{  6, " 7", L"\U0001F0A7", SPADES, 0 },
-	{  7, " 8", L"\U0001F0A8", SPADES, 0 },
-	{  8, " 9", L"\U0001F0A9", SPADES, 0 },
-	{  9, "10", L"\U0001F0Aa", SPADES, 0 },
-	{ 10, " J", L"\U0001F0Ab", SPADES, 0 },
-	{ 11, " Q", L"\U0001F0Ad", SPADES, 0 },
-	{ 12, " K", L"\U0001F0Ae", SPADES, 0 },
-	{ 13, " A", L"\U0001F0A1", SPADES, 0 },
-
+	{ TWO,   " 2", L"\U0001F0A2", SPADES, 0 },
+	{ THREE, " 3", L"\U0001F0A3", SPADES, 0 },
+	{ FOUR,  " 4", L"\U0001F0A4", SPADES, 0 },
+	{ FIVE,  " 5", L"\U0001F0A5", SPADES, 0 },
+	{ SIX,   " 6", L"\U0001F0A6", SPADES, 0 },
+	{ SEVEN, " 7", L"\U0001F0A7", SPADES, 0 },
+	{ EIGHT, " 8", L"\U0001F0A8", SPADES, 0 },
+	{ NINE,  " 9", L"\U0001F0A9", SPADES, 0 },
+	{ TEN,   "10", L"\U0001F0Aa", SPADES, 0 },
+	{ JACK,  " J", L"\U0001F0Ab", SPADES, 0 },
+	{ QUEEN, " Q", L"\U0001F0Ad", SPADES, 0 },
+	{ KING,  " K", L"\U0001F0Ae", SPADES, 0 },
+	{ ACE,   " A", L"\U0001F0A1", SPADES, 0 },
 };
 
 /* The hand. It holds five cards. */
@@ -698,6 +706,14 @@ int straight(void)
 	&&  shand[3].index == shand[2].index + 1
 	&&  shand[4].index == shand[3].index + 1 ) return 1;
 
+	/* Ace low straight: Ace, 2, 3, 4, 5 */
+
+	if( shand[4].index == ACE
+	&&  shand[0].index == TWO
+	&&  shand[1].index == THREE
+	&&  shand[2].index == FOUR
+	&&  shand[3].index == FIVE ) return 1;
+
 	return 0;
 }
 
@@ -793,11 +809,11 @@ int two(void)
 
 #define ROYAL	0
 #define STRFL	1
-#define	FOUR	2
+#define	FOURK	2
 #define FULL	3
 #define FLUSH	4
 #define STR	5
-#define THREE	6
+#define THREEK	6
 #define TWOPAIR	7
 #define PAIR	8
 #define NOTHING 9
@@ -872,11 +888,11 @@ int recognize(void)
 
 	if(st && fl && shand[0].index == TEN) return ROYAL;
 	if(st && fl) return STRFL;
-	if(four()) return FOUR;
+	if(four()) return FOURK;
 	if(full()) return FULL;
 	if(fl) return FLUSH;
 	if(st) return STR;
-	if(three()) return THREE;
+	if(three()) return THREEK;
 	if(twopair()) return TWOPAIR;
 	if(two()) return PAIR;
 
@@ -900,6 +916,16 @@ void play(void)
 	for(i = 0; i < CARDS; i++) hold[i] = 0;
 
 	score -= bet;
+
+#if 0
+	/* To test Ace-low straights,
+	   substitute this for the for loop below */
+	hand[0] = deck[0]; deck[0].gone = 1;
+	hand[1] = deck[1]; deck[1].gone = 1;
+	hand[2] = deck[2]; deck[2].gone = 1;
+	hand[3] = deck[3]; deck[3].gone = 1;
+	hand[4] = deck[12]; deck[12].gone = 1;
+#endif
 
 	for(i = 0; i < CARDS; i++)
 	{
